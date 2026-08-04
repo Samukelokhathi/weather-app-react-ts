@@ -1,0 +1,45 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+
+
+
+nav {
+    width: 100%;
+    padding: 0.5rem 9%;
+    margin-bottom: 20px;
+    background: white;
+    backdrop-filter: blur(15px);
+    top: 0;
+   
+    border-bottom: 1px solid rgb(139, 139, 139);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); 
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+
+}
+
+
+.navLinks{
+    list-style: none;
+    display: flex;
+    gap: 5rem;
+    margin: 1rem 4%;
+}
+
+.navLinks li a {
+    position: relative;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-decoration: none;
+    color:rgb(27, 70,60);
+    transition: 0.5s;
+}
+
+.navLinks li a:hover{
+    color: rgb(8, 160, 23);
+    text-shadow: 0 0 10px rgb(8, 160, 23) ;
+}
+
