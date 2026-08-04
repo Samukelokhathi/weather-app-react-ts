@@ -1,16 +1,14 @@
-
-import './App.css'
+import "./App.css";
+import { Input } from "./Components/Input/Input";
 
 function App() {
-
-
   return (
     <>
-      <div className='bg-blue w-80 h-200 flex column'>
-        <h1 className='text-3xl color-blue'>Testing Deployment</h1>
+      <div>
+        <Input onChange={() => {}} />
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
