@@ -1,5 +1,6 @@
 import { Input } from "../Components/Input/Input";
 import Button from "../Components/Button/Button";
+import { Text } from "../Components/Text/Text";
 
 function Home() {
   return (
@@ -11,6 +12,15 @@ function Home() {
 
         <div className="savedLocations">
           <Button text="Use my location" />
+        </div>
+
+        <div className="flex flex-col justify-center align-center">
+          <Text variant={"h2"} children={"Welcome to SkyCast"} />
+          <Text
+            variant={"p"}
+            children={"Allow location for instant local wether"}
+          />
+          <Button text="Use my Location" />
         </div>
       </div>
     </>
