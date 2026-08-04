@@ -1,17 +1,13 @@
 import "./App.css";
-import { Input } from "./Components/Input/Input";
 import Navbar from "./Components/Nav Bar/Nav";
+import Home from "./Pages/Home";
 
 function App() {
   return (
     <>
       <div className="WeatherApp">
-        <div className="NavBar">
-          <Navbar />
-        </div>
-        <div className="InputDiv">
-          <Input onChange={() => {}} />
-        </div>
+        <Navbar />
+        <Home />
       </div>
     </>
   );
