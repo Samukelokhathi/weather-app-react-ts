@@ -3,6 +3,8 @@ import Button from "../Components/Button/Button";
 import { Text } from "../Components/Text/Text";
 
 function Home() {
+  // const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Durban/2026-08-05/2026-08-05?key=9Z8UJFVQ3LGM6S46PA8MLT82Z`;
+
   return (
     <>
       <div className="WeatherApp flex flex-col gap-7">
@@ -14,7 +16,7 @@ function Home() {
           <Button text="Use my location" />
         </div>
 
-        <div className="flex flex-col justify-center h-54 gap-4 items-center   rounded-2xl text-white bg-[#122033]  ">
+        <div className="flex flex-col justify-center h-54 gap-3 items-center   rounded-2xl text-white bg-[#122033]  ">
           <Text variant={"h2"} children={"Welcome to SkyCast"} />
           <Text
             variant={"p"}
