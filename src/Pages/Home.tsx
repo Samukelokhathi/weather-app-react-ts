@@ -14,13 +14,16 @@ function Home() {
           <Button text="Use my location" />
         </div>
 
-        <div className="flex flex-col justify-center align-center">
+        <div className="flex flex-col justify-center h-54 gap-4 items-center   rounded-2xl text-white bg-[#122033]  ">
           <Text variant={"h2"} children={"Welcome to SkyCast"} />
           <Text
             variant={"p"}
             children={"Allow location for instant local wether"}
           />
-          <Button text="Use my Location" />
+          <Button
+            style={{ backgroundColor: "#20B5E2" }}
+            text="Use my current location"
+          />
         </div>
       </div>
     </>
