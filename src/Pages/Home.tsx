@@ -6,42 +6,43 @@ import React, { useState, useEffect } from 'react';
 
 function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null)
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const apiKey = import.meta.env.API_KEY
+
+  const apiKey = import.meta.env.REACT_APP_WEATHER_KEY
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Durban/2026-08-05/2026-08-05?key=${apiKey}`;
 
-  function UseEffectData() {
-
-    useEffect(() => {
-      const fetchProducts = async () => {
-        try {
-          const response = await fetch(url);
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          const data = await response.json();
-          setWeather(data);
-        } catch (error: any) {
-          setError(error);
-
-        } finally {
-          setLoading(false);
+  useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
-      };
+        const data = await response.json();
+        console.log(data)
+        setWeather(data);
 
-      fetchProducts();
-    }, []);
+      } catch (error: any) {
+        setError(error);
 
-    if (loading) {
-      return <p>Loading...</p>;
-    }
+      } finally {
+        setLoading(true);
+      }
+    };
 
-    if (error) {
-      return <p>Error: {error}</p>;
-    }
+    fetchWeather();
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
   }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
 
 
 
