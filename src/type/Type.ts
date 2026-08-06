@@ -1,4 +1,3 @@
-import { StringQueryType } from "vite/types/importGlob.js";
 
 export interface WeatherData {
     address: string,

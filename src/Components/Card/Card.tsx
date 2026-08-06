@@ -8,7 +8,7 @@ interface CardProps {
 
 function Card({ children }: CardProps) {
   return (
-    <div className="flex flex-col justify-center h-54 gap-3 p-4   rounded-2xl text-white bg-[#122033]">
+    <div className="flex flex-col justify-center h-54  p-8 rounded-2xl text-white bg-[#122033]">
       {children}
     </div>
   );

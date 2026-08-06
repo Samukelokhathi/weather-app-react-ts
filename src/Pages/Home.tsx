@@ -1,9 +1,51 @@
 import { Input } from "../Components/Input/Input";
 import Button from "../Components/Button/Button";
 import { Text } from "../Components/Text/Text";
+import type { WeatherData } from "../type/Type";
+import React, { useState, useEffect } from 'react';
 
 function Home() {
-  // const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Durban/2026-08-05/2026-08-05?key=9Z8UJFVQ3LGM6S46PA8MLT82Z`;
+  const [weather, setWeather] = useState<WeatherData | null>(null)
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const apiKey = import.meta.env.API_KEY
+  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Durban/2026-08-05/2026-08-05?key=${apiKey}`;
+
+  function UseEffectData() {
+
+    useEffect(() => {
+      const fetchProducts = async () => {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const data = await response.json();
+          setWeather(data);
+        } catch (error: any) {
+          setError(error);
+
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      fetchProducts();
+    }, []);
+
+    if (loading) {
+      return <p>Loading...</p>;
+    }
+
+    if (error) {
+      return <p>Error: {error}</p>;
+    }
+  }
+
+
+
+
 
   return (
     <>
