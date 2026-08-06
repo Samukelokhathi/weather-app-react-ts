@@ -3,12 +3,12 @@ import type { ReactNode } from "react";
 interface CardProps {
   children: ReactNode;
   className?: string;
-  height: string;
+  height?: string;
 }
 
 function Card({ children }: CardProps) {
   return (
-    <div className="rounded-3xl bg-[#121F33] flex flex-col justify-center text-white">
+    <div className="flex flex-col justify-center h-54 gap-3 p-4   rounded-2xl text-white bg-[#122033]">
       {children}
     </div>
   );

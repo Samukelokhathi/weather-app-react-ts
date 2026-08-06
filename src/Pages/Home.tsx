@@ -9,14 +9,14 @@ function Home() {
     <>
       <div className="WeatherApp flex flex-col gap-7">
         <div className="InputDiv">
-          <Input onChange={() => {}} />
+          <Input onChange={() => { }} />
         </div>
 
         <div className="savedLocations">
           <Button text="Use my location" />
         </div>
 
-        <div className="flex flex-col justify-center h-54 gap-3 items-center   rounded-2xl text-white bg-[#122033]  ">
+        <div className="flex flex-col justify-center h-54 gap-3 items-center mb-5   rounded-2xl text-white bg-[#122033]  ">
           <Text variant={"h2"} children={"Welcome to SkyCast"} />
           <Text
             variant={"p"}
