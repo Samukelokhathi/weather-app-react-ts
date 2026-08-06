@@ -1,9 +1,11 @@
 import type { ReactNode } from "react";
+import type { WeatherData } from "../../type/Type";
 
 interface CardProps {
   children: ReactNode;
   className?: string;
   height?: string;
+
 }
 
 function Card({ children }: CardProps) {

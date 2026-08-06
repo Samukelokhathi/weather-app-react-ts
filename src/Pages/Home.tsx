@@ -3,14 +3,16 @@ import Button from "../Components/Button/Button";
 import { Text } from "../Components/Text/Text";
 import type { WeatherData } from "../type/Type";
 import React, { useState, useEffect } from 'react';
+import WeatherCard from "../Components/Card/WeatherCard";
+
 
 function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null)
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
 
-  const apiKey = import.meta.env.REACT_APP_WEATHER_KEY
+  const apiKey = import.meta.env.VITE_APP_WEATHER_KEY
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Durban/2026-08-05/2026-08-05?key=${apiKey}`;
 
   useEffect(() => {
@@ -22,13 +24,20 @@ function Home() {
         }
         const data = await response.json();
         console.log(data)
-        setWeather(data);
+        setWeather({
+          address: data.address,
+          temp: data.days.temp,
+          humidity: data.days.humidity,
+          windSpeed: data.days.windspeed,
+          icon: data.icon
+
+        });
 
       } catch (error: any) {
         setError(error);
 
       } finally {
-        setLoading(true);
+        setLoading(false);
       }
     };
 
@@ -71,6 +80,8 @@ function Home() {
           />
         </div>
       </div>
+
+      <WeatherCard weather={weather} />
     </>
   );
 }
