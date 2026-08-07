@@ -4,16 +4,23 @@ import { Text } from "../Components/Text/Text";
 import type { WeatherData } from "../type/Type";
 import React, { useState, useEffect } from 'react';
 import WeatherCard from "../Components/Card/WeatherCard";
+import { useNavigate } from "react-router-dom"
 
 
 function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null)
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchValue, setSearchValue] = useState("Durban");
+
+  const navigate = useNavigate()
+
+
+
 
 
   const apiKey = import.meta.env.VITE_APP_WEATHER_KEY
-  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/london/2026-08-05/2026-08-05?key=${apiKey}`;
+  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${searchValue}/2026-08-05/2026-08-05?key=${apiKey}`;
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -60,8 +67,12 @@ function Home() {
   return (
     <>
       <div className="WeatherApp flex flex-col gap-7">
-        <div className="InputDiv">
-          <Input onChange={() => { }} />
+        <div className=" flex gap-3 items-center ">
+          <Input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+          <Button text="Search" onClick={() => {
+            navigate(`/CurrentWeather/${searchValue}`)
+
+          }} />
         </div>
 
         <div className="savedLocations">

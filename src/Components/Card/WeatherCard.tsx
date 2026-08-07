@@ -4,12 +4,12 @@ import type { WeatherData } from "../../type/Type";
 import React from "react";
 
 
-interface WetherProps {
+interface WeatherProps {
     weather: WeatherData | null
 }
 
 
-const WeatherCard: React.FC<WetherProps> = ({ weather }) => {
+const WeatherCard: React.FC<WeatherProps> = ({ weather }) => {
     if (!weather) return null
     return (
         <div>
