@@ -13,7 +13,7 @@ function Home() {
 
 
   const apiKey = import.meta.env.VITE_APP_WEATHER_KEY
-  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Durban/2026-08-05/2026-08-05?key=${apiKey}`;
+  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/london/2026-08-05/2026-08-05?key=${apiKey}`;
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -25,11 +25,13 @@ function Home() {
         const data = await response.json();
         console.log(data)
         setWeather({
+          timezone: data.timezone,
           address: data.address,
-          temp: data.days.temp,
-          humidity: data.days.humidity,
-          windSpeed: data.days.windspeed,
-          icon: data.icon
+          temp: data.days[0].temp,
+          humidity: data.days[0].humidity,
+          windSpeed: data.days[0].windspeed,
+          icon: data.icon,
+          date: data.days[0]["datetime"]
 
         });
 
@@ -51,8 +53,6 @@ function Home() {
   if (error) {
     return <p>Error: {error}</p>;
   }
-
-
 
 
 

@@ -2,6 +2,7 @@
 import navStyle from "./Navbar.module.css";
 import { Text } from "../Text/Text";
 
+
 export default function Navbar() {
   return (
     <nav>

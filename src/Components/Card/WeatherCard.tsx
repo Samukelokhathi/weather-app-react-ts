@@ -13,10 +13,10 @@ const WeatherCard: React.FC<WetherProps> = ({ weather }) => {
     if (!weather) return null
     return (
         <div>
-            <Card className="flex flex-col justify-center h-74 gap-1 items-center   rounded-2xl text-white bg-[#122033]">
-                <Text variant="p" children={"Province"} />
+            <Card className="flex flex-col justify-center h-84 items-center p-10  rounded-2xl text-white bg-[#122033]">
+                <Text variant="p" children={weather.timezone} />
                 <Text variant="h2" children={weather.address} />
-                <Text variant="p" children={"Monday 10: 00"} />
+                <Text variant="p" children={weather.date} />
                 <div className="flex items-center">
                     <div className="icon">☀️</div>
                     <Text variant="h1" children={"20"} />
