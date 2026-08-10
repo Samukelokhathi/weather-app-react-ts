@@ -37,22 +37,11 @@ function Home() {
     return <p>Error: {error}</p>;
   }
 
-  return <WeatherCard weather={weather} />;
-
-
-
+  // return <WeatherCard weather={weather} />;
 
   return (
     <>
       <div className="WeatherApp flex flex-col gap-7">
-        {/* <div className=" flex gap-3 items-center ">
-          <Input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
-          <Button text="Search" onClick={() => {
-            navigate(`/CurrentWeather/${searchValue}`)
-
-          }} />
-        </div> */}
-
         <div className="flex flex-col justify-center h-54 gap-3 items-center mb-5   rounded-2xl text-white bg-[#122033]  ">
           <Text variant={"h2"} children={"Welcome to SkyCast"} />
           <Text
