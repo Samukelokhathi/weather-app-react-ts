@@ -13,7 +13,6 @@ function App() {
     <div className="App flex flex-col gap-5">
       <Navbar />
       <SearchBar />
-      {/* <WeatherCard weather={ } /> */}
       <main>
         <BrowserRouter>
           <Routes>

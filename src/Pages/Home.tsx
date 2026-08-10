@@ -1,63 +1,43 @@
-import { Input } from "../Components/Input/Input";
-import Button from "../Components/Button/Button";
-import { Text } from "../Components/Text/Text";
 import type { WeatherData } from "../types/Type";
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
+import { fetchWeatherData } from "../services/weatherApi";
+import { Text } from "../Components/Text/Text";
+import Button from "../Components/Button/Button";
 import WeatherCard from "../Components/Card/WeatherCard";
-import { useNavigate } from "react-router-dom"
 
 
 function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null)
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [searchValue, setSearchValue] = useState("Durban");
-
-  const navigate = useNavigate()
+  const [error, setError] = useState<string | null>(null);
 
 
-  const apiKey = import.meta.env.VITE_APP_WEATHER_KEY
-  // const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${searchValue}/2026-08-05/2026-08-05?key=${apiKey}`;
-  const url = '{}'
+  useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        const data = await fetchWeatherData("New York");
+        setWeather(data);
 
-  // useEffect(() => {
-  //   const fetchWeather = async () => {
-  //     try {
-  //       const response = await fetch(url);
-  //       if (!response.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
-  //       const data = await response.json();
-  //       console.log(data)
-  //       setWeather({
-  //         timezone: data.timezone,
-  //         address: data.address,
-  //         temp: data.days[0].temp,
-  //         humidity: data.days[0].humidity,
-  //         windSpeed: data.days[0].windspeed,
-  //         icon: data.icon,
-  //         date: data.days[0]["datetime"]
+      } catch (error: any) {
+        setError("Network response was not ok");
 
-  //       });
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  //     } catch (error: any) {
-  //       setError(error);
+    fetchWeather();
+  }, []);
 
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
-  //   fetchWeather();
-  // }, []);
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
-  // if (loading) {
-  //   return <p>Loading...</p>;
-  // }
-
-  // if (error) {
-  //   return <p>Error: {error}</p>;
-  // }
+  return <WeatherCard weather={weather} />;
 
 
 
