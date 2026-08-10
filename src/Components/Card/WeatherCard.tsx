@@ -17,10 +17,10 @@ const WeatherCard: React.FC<WeatherProps> = ({ weather }) => {
             <Card className="flex flex-col justify-center h-84 items-center p-10  rounded-2xl text-white bg-[#122033]">
                 <Text variant="p" children={weather.timezone} />
                 <Text variant="h2" children={weather.address} />
-                <Text variant="p" children={weather.date} />
+                <Text variant="p" children={weather.currentConditions.datetime} />
                 <div className="flex items-center">
                     <div className="icon">☀️</div>
-                    <Text variant="h1" children={"20"} />
+                    <Text variant="h1" children={weather.currentConditions.temp} />
                 </div>
             </Card>
         </div>

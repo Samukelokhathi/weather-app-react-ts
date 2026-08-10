@@ -73,10 +73,6 @@ function Home() {
           }} />
         </div> */}
 
-        <div className="savedLocations">
-          <Button text="Use my location" />
-        </div>
-
         <div className="flex flex-col justify-center h-54 gap-3 items-center mb-5   rounded-2xl text-white bg-[#122033]  ">
           <Text variant={"h2"} children={"Welcome to SkyCast"} />
           <Text
@@ -90,7 +86,7 @@ function Home() {
         </div>
       </div>
 
-      {/* <WeatherCard weather={weather} /> */}
+      <WeatherCard weather={weather} />
     </>
   );
 }

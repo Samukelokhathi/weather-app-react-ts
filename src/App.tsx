@@ -1,4 +1,5 @@
 import "./App.css";
+import WeatherCard from "./Components/Card/WeatherCard";
 import Navbar from "./Components/Navbar/Nav";
 import SearchBar from "./Components/SearchBar/SearchBar";
 // import CurrentWeather from "./pages/CurrentWeather";
@@ -12,6 +13,7 @@ function App() {
     <div className="App flex flex-col gap-5">
       <Navbar />
       <SearchBar />
+      {/* <WeatherCard weather={ } /> */}
       <main>
         <BrowserRouter>
           <Routes>
