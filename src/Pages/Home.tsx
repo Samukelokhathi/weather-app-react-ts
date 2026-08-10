@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom"
 
 
 function Home() {
-  // const [weather, setWeather] = useState<WeatherData | null>(null)
+  const [weather, setWeather] = useState<WeatherData | null>(null)
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchValue, setSearchValue] = useState("Durban");
@@ -16,50 +16,48 @@ function Home() {
   const navigate = useNavigate()
 
 
-
-
-
   const apiKey = import.meta.env.VITE_APP_WEATHER_KEY
-  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${searchValue}/2026-08-05/2026-08-05?key=${apiKey}`;
+  // const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${searchValue}/2026-08-05/2026-08-05?key=${apiKey}`;
+  const url = '{}'
 
-  useEffect(() => {
-    const fetchWeather = async () => {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        console.log(data)
-        setWeather({
-          timezone: data.timezone,
-          address: data.address,
-          temp: data.days[0].temp,
-          humidity: data.days[0].humidity,
-          windSpeed: data.days[0].windspeed,
-          icon: data.icon,
-          date: data.days[0]["datetime"]
+  // useEffect(() => {
+  //   const fetchWeather = async () => {
+  //     try {
+  //       const response = await fetch(url);
+  //       if (!response.ok) {
+  //         throw new Error('Network response was not ok');
+  //       }
+  //       const data = await response.json();
+  //       console.log(data)
+  //       setWeather({
+  //         timezone: data.timezone,
+  //         address: data.address,
+  //         temp: data.days[0].temp,
+  //         humidity: data.days[0].humidity,
+  //         windSpeed: data.days[0].windspeed,
+  //         icon: data.icon,
+  //         date: data.days[0]["datetime"]
 
-        });
+  //       });
 
-      } catch (error: any) {
-        setError(error);
+  //     } catch (error: any) {
+  //       setError(error);
 
-      } finally {
-        setLoading(false);
-      }
-    };
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchWeather();
-  }, []);
+  //   fetchWeather();
+  // }, []);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  // if (loading) {
+  //   return <p>Loading...</p>;
+  // }
 
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
+  // if (error) {
+  //   return <p>Error: {error}</p>;
+  // }
 
 
 
@@ -67,13 +65,13 @@ function Home() {
   return (
     <>
       <div className="WeatherApp flex flex-col gap-7">
-        <div className=" flex gap-3 items-center ">
+        {/* <div className=" flex gap-3 items-center ">
           <Input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
           <Button text="Search" onClick={() => {
             navigate(`/CurrentWeather/${searchValue}`)
 
           }} />
-        </div>
+        </div> */}
 
         <div className="savedLocations">
           <Button text="Use my location" />
