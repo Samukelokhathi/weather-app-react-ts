@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { WeatherData } from "../../type/Type";
+// import type { WeatherData } from "../../../type/Type";
 
 interface CardProps {
   children: ReactNode;

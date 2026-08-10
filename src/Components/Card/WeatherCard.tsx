@@ -1,6 +1,7 @@
 import Card from "./Card";
 import { Text } from "../Text/Text"
-import type { WeatherData } from "../../type/Type";
+import type { WeatherData } from "../../types/Type";
+
 import React from "react";
 
 

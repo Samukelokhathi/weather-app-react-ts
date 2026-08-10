@@ -1,14 +1,14 @@
 import { Input } from "../Components/Input/Input";
 import Button from "../Components/Button/Button";
 import { Text } from "../Components/Text/Text";
-import type { WeatherData } from "../type/Type";
+import type { WeatherData } from "../types/Type";
 import React, { useState, useEffect } from 'react';
 import WeatherCard from "../Components/Card/WeatherCard";
 import { useNavigate } from "react-router-dom"
 
 
 function Home() {
-  const [weather, setWeather] = useState<WeatherData | null>(null)
+  // const [weather, setWeather] = useState<WeatherData | null>(null)
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchValue, setSearchValue] = useState("Durban");
@@ -92,7 +92,7 @@ function Home() {
         </div>
       </div>
 
-      <WeatherCard weather={weather} />
+      {/* <WeatherCard weather={weather} /> */}
     </>
   );
 }

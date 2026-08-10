@@ -1,18 +1,18 @@
-import react from "react";
-import { useParams } from "react-router-dom";
-import Card from "../Components/Card/Card";
+// import react from "react";
+// import { useParams } from "react-router-dom";
+// // import Card from "../Components/Ui/Card/Card";
 
 
-const CurrentWeather = () => {
-    const { location } = useParams();
-    return (
-        <div>
-            <Card>
-                <h1>Current Weather for {location}</h1>
-            </Card>
+// const CurrentWeather = () => {
+//     const { location, } = useParams();
+//     return (
+//         <div>
+//             <Card>
+//                 <h1>Current Weather for {location}</h1>
+//             </Card>
 
-        </div>
-    );
-};
+//         </div>
+//     );
+// };
 
-export default CurrentWeather;
+// export default CurrentWeather;
