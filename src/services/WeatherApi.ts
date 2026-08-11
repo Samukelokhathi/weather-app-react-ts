@@ -5,7 +5,7 @@ console.log("API KEY:", API_KEY);
 
 
 export async function fetchWeatherData(location: string): Promise<WeatherData> {
-    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/2026-08-05/2026-08-05?key=${API_KEY}`;
+    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(location)}?unitGroup=metric&key=${API_KEY}&contentType=json`;
 
 
     const response = await fetch(url);

@@ -15,7 +15,7 @@ function Home() {
   useEffect(() => {
     const fetchWeather = async () => {
       try {
-        const data = await fetchWeatherData("New York");
+        const data = await fetchWeatherData("durban");
         setWeather(data);
 
       } catch (error: any) {
