@@ -4,19 +4,25 @@ import { fetchWeatherData } from "../services/WeatherApi";
 import { Text } from "../Components/Text/Text";
 import Button from "../Components/Button/Button";
 import WeatherCard from "../Components/Card/WeatherCard";
+import SearchBar from "../Components/SearchBar/SearchBar";
+
 
 
 function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null)
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchValue, setSearchValue] = useState("");
+  const [city, setCity] = useState("durban");
 
 
   useEffect(() => {
     const fetchWeather = async () => {
+      setLoading(true);
       try {
-        const data = await fetchWeatherData("durban");
+        const data = await fetchWeatherData(city);
         setWeather(data);
+        setError(null);
 
       } catch (error: any) {
         setError("Network response was not ok");
@@ -27,7 +33,12 @@ function Home() {
     };
 
     fetchWeather();
-  }, []);
+  }, [city]);
+
+  const handleSearch = () => {
+    if (searchValue.trim() === "") return;
+    setCity(searchValue);
+  }
 
   if (loading) {
     return <p>Loading...</p>;
@@ -39,7 +50,6 @@ function Home() {
 
 
 
-  // return <WeatherCard weather={weather} />;
 
   return (
     <>
@@ -56,8 +66,11 @@ function Home() {
           />
         </div>
       </div>
+      <SearchBar value={searchValue} onChange={setSearchValue} onSearch={handleSearch} />
 
-      <WeatherCard weather={weather} />
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      {!loading && !error && <WeatherCard weather={weather} />}
     </>
   );
 }
