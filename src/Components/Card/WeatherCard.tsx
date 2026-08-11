@@ -16,7 +16,7 @@ interface WeatherProps {
 
 const WeatherCard: React.FC<WeatherProps> = ({ weather, onSave, isSaved }) => {
     if (!weather) return null
-    const { temp, humidity, windspeed, icon, datetime } = weather.currentConditions;
+    const { temp, humidity, windspeed, icon } = weather.currentConditions;
     return (
         <div>
             <Card className="card flex-col">
