@@ -5,6 +5,7 @@ import { Text } from "../Components/Text/Text";
 import Button from "../Components/Button/Button";
 import WeatherCard from "../Components/Card/WeatherCard";
 import SearchBar from "../Components/SearchBar/SearchBar";
+import { getSavedLocations, saveLocation, removeLocation } from "../utils/Storage"
 
 
 
@@ -14,7 +15,11 @@ function Home() {
   const [error, setError] = useState<string | null>(null);
   const [searchValue, setSearchValue] = useState("");
   const [city, setCity] = useState("durban");
+  const [savedLocations, setSavedLocations] = useState<string[]>([]);
 
+  useEffect(() => {
+    setSavedLocations(getSavedLocations());
+  }, []);
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -23,6 +28,7 @@ function Home() {
         const data = await fetchWeatherData(city);
         setWeather(data);
         setError(null);
+
 
       } catch (error: any) {
         setError("Network response was not ok");
@@ -70,7 +76,10 @@ function Home() {
 
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
-      {!loading && !error && <WeatherCard weather={weather} />}
+      {!loading && !error && <WeatherCard weather={weather} isSaved={savedLocations.includes(city)} onSave={() => setSavedLocations(saveLocation(city))} />}
+
+
+
     </>
   );
 }
