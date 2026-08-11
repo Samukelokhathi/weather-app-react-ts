@@ -22,11 +22,11 @@ const WeatherCard: React.FC<WeatherProps> = ({ weather, onSave, isSaved }) => {
             <Card className="card flex-col">
                 <div>
                     <div>
-                        <Button className="bg-green-400 " text={isSaved ? "Remove Location" : "Save Location"} onClick={onSave} />
+                        <Button className=" #20B5E2 " text={isSaved ? "Remove Location" : "Save Location"} onClick={onSave} />
                     </div>
                     <Text variant="p" children={weather.timezone} />
                     <Text variant="h2" children={weather.address} />
-                    <Text variant="p" children={datetime} />
+                    {/* <Text variant="p" children={datetime} /> */}
                     <div className="flex items-center">
                         <div className="icon text-6xl">{getWeatherIcon(icon)}</div>
                         <Text variant="h1" children={`${temp}°`} />

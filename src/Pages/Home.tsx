@@ -5,7 +5,7 @@ import { Text } from "../Components/Text/Text";
 import Button from "../Components/Button/Button";
 import WeatherCard from "../Components/Card/WeatherCard";
 import SearchBar from "../Components/SearchBar/SearchBar";
-import { getSavedLocations, saveLocation, removeLocation } from "../utils/Storage"
+import { getSavedLocations, saveLocation } from "../utils/Storage"
 
 
 
@@ -55,24 +55,36 @@ function Home() {
   }
 
 
-
+  const handleUseLocation = () => {
+    if (!navigator.geolocation) {
+      setError("Geolocation is not supported by your browser");
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        setCity(`${latitude},${longitude}`);
+      },
+      () => {
+        setError("Location access denied. Please search manually.");
+      }
+    );
+  };
 
   return (
     <>
       <div className="WeatherApp flex flex-col gap-7">
+        <SearchBar value={searchValue} onChange={setSearchValue} onSearch={handleSearch} />
         <div className="flex flex-col justify-center h-54 gap-3 items-center mb-5   rounded-2xl text-white bg-[#122033]  ">
           <Text variant={"h2"} children={"Welcome to SkyCast"} />
           <Text
             variant={"p"}
             children={"Allow location for instant local wether"}
           />
-          <Button
-            style={{ backgroundColor: "#20B5E2" }}
-            text="Use my current location"
-          />
+          <Button onClick={handleUseLocation} style={{ backgroundColor: "#20B5E2" }} text="Use my current location" />
+
         </div>
       </div>
-      <SearchBar value={searchValue} onChange={setSearchValue} onSearch={handleSearch} />
 
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}

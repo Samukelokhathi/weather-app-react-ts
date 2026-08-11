@@ -14,7 +14,7 @@ type searchBarProps = {
 
 const SearchBar: React.FC<searchBarProps> = ({ value, onChange, onSearch, style, error }) => {
     return (
-        <div>
+        <div className="flex gap-3 w-full  mx-auto mt-4">
             <input
                 className="w-full bg-[#112033] text-gray-400 placeholder-EnterPlace placeholder-gray-400 px-9 py-3 rounded-full border border-gray-800/40 focus:outline-none focus:border-blue-500/50"
 
