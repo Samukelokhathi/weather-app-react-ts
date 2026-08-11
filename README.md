@@ -81,5 +81,5 @@ During this project I practiced:
 
 ## 🔗 Documents Links
 
-* 🔗 Live Site: PASTE_YOUR_LIVE_LINK_HERE
+* 🔗 Live Site:https://weather-app-seven-lemon-34.vercel.app/
 * 🔗 GitHub Repository:https://github.com/Samukelokhathi/weather-app-react-ts
