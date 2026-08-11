@@ -9,7 +9,7 @@ interface CardProps {
 
 function Card({ children, className = "" }: CardProps) {
   return (
-    <div className={`flex items-center h-content  p-8 rounded-2xl text-white bg-[#122033] ${className}`}>
+    <div className={`flex  h-content  p-8 rounded-2xl text-white bg-[#122033] ${className}`}>
       {children}
     </div>
   );

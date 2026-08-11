@@ -16,7 +16,7 @@ const WeatherCard: React.FC<WeatherProps> = ({ weather }) => {
     const { temp, humidity, windspeed, icon, datetime } = weather.currentConditions;
     return (
         <div>
-            <Card className="card">
+            <Card className="card flex-col">
                 <div>
                     <Text variant="p" children={weather.timezone} />
                     <Text variant="h2" children={weather.address} />
