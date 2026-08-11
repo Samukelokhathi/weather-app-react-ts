@@ -1,16 +1,22 @@
 import type { WeatherData } from "../types/Type";
 
-const API_KEY = import.meta.env.VITE_APP_WEATHER_KEY;
+const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+console.log("API KEY:", API_KEY);
+
 
 export async function fetchWeatherData(location: string): Promise<WeatherData> {
     const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/2026-08-05/2026-08-05?key=${API_KEY}`;
+
+
     const response = await fetch(url);
 
     if (!response.ok) {
-        throw new Error("Failed to fetch weather data");
+        throw new Error(`Failed to fetch weather data: ${response.status} ${response.statusText}`);
     }
 
     const data = await response.json();
+
+    console.log(data);
 
     return {
         address: data.address,
@@ -18,7 +24,7 @@ export async function fetchWeatherData(location: string): Promise<WeatherData> {
         currentConditions: {
             temp: data.currentConditions.temp,
             humidity: data.currentConditions.humidity,
-            windspeed: data.currentConditions.windSpeed,
+            windspeed: data.currentConditions.windspeed,
             icon: data.currentConditions.icon,
             datetime: data.currentConditions.datetime
         },

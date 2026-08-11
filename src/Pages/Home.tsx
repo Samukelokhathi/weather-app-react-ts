@@ -1,6 +1,6 @@
 import type { WeatherData } from "../types/Type";
 import { useEffect, useState } from "react";
-import { fetchWeatherData } from "../services/weatherApi";
+import { fetchWeatherData } from "../services/WeatherApi";
 import { Text } from "../Components/Text/Text";
 import Button from "../Components/Button/Button";
 import WeatherCard from "../Components/Card/WeatherCard";
@@ -36,6 +36,8 @@ function Home() {
   if (error) {
     return <p>Error: {error}</p>;
   }
+
+
 
   // return <WeatherCard weather={weather} />;
 
