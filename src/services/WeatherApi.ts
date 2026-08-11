@@ -1,7 +1,6 @@
 import type { WeatherData } from "../types/Type";
 
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
-console.log("API KEY:", API_KEY);
 
 
 export async function fetchWeatherData(location: string): Promise<WeatherData> {
@@ -27,6 +26,7 @@ export async function fetchWeatherData(location: string): Promise<WeatherData> {
             windspeed: data.currentConditions.windspeed,
             icon: data.currentConditions.icon,
             datetime: data.currentConditions.datetime
+
         },
         days: data.days.map((day: any) => ({
             datetime: day.datetime,
