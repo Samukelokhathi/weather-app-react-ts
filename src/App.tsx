@@ -1,6 +1,6 @@
 import "./App.css";
 import Navbar from "./Components/Navbar/Nav";
-import Home from "./pages/Home.tsx";
+import Home from "./pages/Home";
 
 
 function App() {
@@ -8,7 +8,6 @@ function App() {
     <div className="App flex flex-col gap-5">
       <Navbar />
       <Home />
-
     </div>
   );
 }
