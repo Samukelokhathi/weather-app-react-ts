@@ -14,27 +14,31 @@ const Forecast: React.FC<ForecastProps> = ({ weather }) => {
     const [view, setView] = useState<"hourly" | "daily">("hourly");
 
     return (
-        <Card className="flex flex-col gap-4 bg-[#122033] p-4">
-            <Text variant="h3" children="5-Day Forecast" />
+        <Card className="flex flex-col gap-4">
+            <div className="flex justify-between items-center mb-4">
+                <Text variant="h3" children="Forecast" />
 
-            <div className="flex gap-2 bg-white/5 rounded-full p-1">
-                <Button className="bg-white/10 hover:bg-white/20" onClick={() => setView("hourly")} text="Hourly"
-                />
+                <div className="flex gap-2 bg-white/5 rounded-full p-1">
+                    <Button className={`px-4 py-1 rounded-full text-sm ${view === "hourly" ? "bg-[#20B5E2] text-white" : "text-gray-400"
+                        }`} onClick={() => setView("hourly")} text="Hourly"
+                    />
 
-                <Button className="bg-white/10 hover:bg-white/20" onClick={() => setView("daily")} text="Daily"
-                />
-            </div>
+                    <Button className={`px-4 py-1 rounded-full text-sm ${view === "daily" ? "bg-[#20B5E2] text-white" : "text-gray-400"
+                        }`} onClick={() => setView("daily")} text="Daily"
+                    />
+                </div>
 
 
-            <div className="flex gap-3 overflow-x-auto pb-2">
-                {view === "daily" && weather.days.map((day) => (
-                    <Card key={day.datetime} className="">
-                        <Text variant="h4" children={day.datetime} />
-                        <span>{getWeatherIcon(day.icon)}</span>
-                        <Text variant="p" children={`${day.temp}°C`} />
+                <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory">
+                    {view === "daily" && weather.days.map((day) => (
 
-                    </Card>
-                ))}
+                        <Card key={day.datetime} className="flex-col items-center gap-2 px-4 py-4 min-w-[90px] snap-start shrink-0 bg-white/5">
+                            <Text variant="h4" children={day.datetime} />
+                            <span>{getWeatherIcon(day.icon)}</span>
+                            <Text variant="p" children={`${day.temp}°C`} />
+                        </Card>
+                    ))}
+                </div>
             </div>
 
         </Card>
