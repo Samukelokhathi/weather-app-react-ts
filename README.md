@@ -1,7 +1,7 @@
-# 📸 Preview
+📸 Preview
 
 <img src="https://socialify.git.ci/Samukelokhathi/weather-app-react-ts/image?description=1&font=JetBrains+Mono&language=0&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI%2BCiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8%2BCiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8%2BCiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8%2BCiAgPC9nPgo8L3N2Zz4K&owner=0&pattern=Circuit+Board&pulls=1&stargazers=1&theme=Auto" alt="weather-app-react-ts" width="640" height="320" />
-# 🌤️ SkyCast — Weather App React-Task-4
+🌤️ SkyCast — Weather App React-Task-3
 
 A modern, responsive weather application that lets users check current conditions and forecasts for their location or any city they search for. This project was built to practice consuming third-party APIs, managing asynchronous state, and persisting data with `localStorage` in a React + TypeScript environment.
 
