@@ -6,7 +6,7 @@ import Button from "../Components/Button/Button";
 import WeatherCard from "../Components/Card/WeatherCard";
 import SearchBar from "../Components/SearchBar/SearchBar";
 import { getSavedLocations, saveLocation } from "../utils/Storage"
-
+import Forecast from "../Components/Forecast/Forecast";
 
 
 function Home() {
@@ -96,6 +96,7 @@ function Home() {
       {error && <p>Error: {error}</p>}
       {!loading && !error && <WeatherCard weather={weather} isSaved={savedLocations.includes(city)} onSave={() => setSavedLocations(saveLocation(city))} />}
 
+      <Forecast />
 
 
 
