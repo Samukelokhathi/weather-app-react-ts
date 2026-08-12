@@ -86,9 +86,17 @@ function Home() {
         </div>
       </div>
 
+      <div className="flex gap-2 flex-wrap">
+        {savedLocations.map((location) => (
+          <Button key={location} text={location} onClick={() => setCity(location)} />
+        ))}
+      </div>
+
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       {!loading && !error && <WeatherCard weather={weather} isSaved={savedLocations.includes(city)} onSave={() => setSavedLocations(saveLocation(city))} />}
+
+
 
 
 
