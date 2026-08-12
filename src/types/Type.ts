@@ -9,6 +9,7 @@ export interface CurrentConditions {
 export interface HourData {
     datetime: string;
     temp: number;
+    icon: string;
 }
 
 export interface DayData {

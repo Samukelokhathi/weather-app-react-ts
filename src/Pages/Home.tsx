@@ -96,7 +96,7 @@ function Home() {
       {error && <p>Error: {error}</p>}
       {!loading && !error && <WeatherCard weather={weather} isSaved={savedLocations.includes(city)} onSave={() => setSavedLocations(saveLocation(city))} />}
 
-      <Forecast />
+      <Forecast weather={weather} />
 
 
 
