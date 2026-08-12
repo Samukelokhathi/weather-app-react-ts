@@ -14,7 +14,7 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchValue, setSearchValue] = useState("");
-  const [city, setCity] = useState("durban");
+  const [city, setCity] = useState('');
   const [savedLocations, setSavedLocations] = useState<string[]>([]);
 
   useEffect(() => {
@@ -29,8 +29,7 @@ function Home() {
         setWeather(data);
         setError(null);
 
-
-      } catch (error: any) {
+      } catch (error) {
         setError("Network response was not ok");
 
       } finally {
@@ -45,15 +44,6 @@ function Home() {
     if (searchValue.trim() === "") return;
     setCity(searchValue);
   }
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
-
 
   const handleUseLocation = () => {
     if (!navigator.geolocation) {
@@ -75,7 +65,9 @@ function Home() {
     <>
       <div className="WeatherApp flex flex-col gap-7">
         <SearchBar value={searchValue} onChange={setSearchValue} onSearch={handleSearch} />
+
         <div className="flex flex-col justify-center h-54 gap-3 items-center mb-5   rounded-2xl text-white bg-[#122033]  ">
+
           <Text variant={"h2"} children={"Welcome to SkyCast"} />
           <Text
             variant={"p"}
@@ -94,10 +86,18 @@ function Home() {
 
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
-      {!loading && !error && <WeatherCard weather={weather} isSaved={savedLocations.includes(city)} onSave={() => setSavedLocations(saveLocation(city))} />}
 
-      <Forecast weather={weather} />
 
+      {!loading && !error && weather && (
+        <div className="flex flex-col gap-6">
+          <WeatherCard
+            weather={weather}
+            isSaved={savedLocations.includes(city)}
+            onSave={() => setSavedLocations(saveLocation(city))}
+          />
+          <Forecast weather={weather} />
+        </div>
+      )}
 
 
 
